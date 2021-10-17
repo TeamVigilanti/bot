@@ -22,7 +22,7 @@ module.exports = {
         if (command.permissions) {
             let { permissions } = command
                 
-            if ((permissions === 'BOT_DEV' || command.category === 'dev') && !devs.includes(message.author.id)) return
+            if ((permissions === 'BOT_DEV' || command.category === 'dev') && !devs.includes(message.author.id)) return message.channel.send({ embeds: [ccEmbed('error', 'Dev Only Command', `You do not have permission to use this command!`)] })
             
             if (typeof permissions === 'string') permissions = [permissions]
         
@@ -30,12 +30,12 @@ module.exports = {
                 const permErrEmbed = ccEmbed('error', 'Invalid Permissions!')
                 
                 if (!message.member.permissions.has(permission)) {
-                    permErrEmbed.setDescription('You don\'t have perms to run this command!')
+                    permErrEmbed.setDescription('You don\'t have the require permissions to run this command!')
                     return message.channel.send({embeds: [permErrEmbed]})
                 }
                 
                 if (!message.guild.me.permissions.has(permission)) {
-                    permErrEmbed.setDescription('I don\'t have perms to run this command!')
+                    permErrEmbed.setDescription('I don\'t have the require permissions to run this command!')
                     return message.channel.send({embeds: [permErrEmbed]})
                 }
             }

@@ -11,7 +11,6 @@ module.exports = {
     permissions: 'ADMINISTRATOR',
     async run (client, message, args) {
         let backupID = args[0];
-        if(!message.member.permissions.has('ADMINISTRATOR')) return message.channel.send(ccEmbed('error', 'Missing Administrator', 'You do not have the required permissions to use this command!'));
                 
         if(!backupID){
             return message.channel.send(":x: | That backup ID doesn't look correct!");

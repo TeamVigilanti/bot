@@ -15,12 +15,11 @@ module.exports = {
         const embed = ccEmbed('success', 'DM Successfully Sent!', 'Check your DMs!')
 
         if (args[0] == '-dm') {
-            try {
-                sendFullHelp(client, message.author)
-                return message.channel.send({ embeds: [embed] })
-            } catch (err) {
-                return message.channel.send({ embeds: [errEmbed] })
-            }
+           sendFullHelp(client, message.author).then(
+               () => message.channel.send({ embeds: [embed] }))
+               .catch(
+                   () => message.channel.send({ embeds: [errEmbed] }
+                ))
         }
         
         if (args[0] === '-dd') return sendDropdownMenuHelp(client, message.channel, message.author, false)

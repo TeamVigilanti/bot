@@ -122,9 +122,6 @@ module.exports = {
 
         initialMessage = await location.send({ embeds: [ccEmbed('success', 'Categories Loaded!')], components: [row] })
 
-        // me when fad carries the bot :pensive: :flushed:
-        // mfw eror
-
         async function load() {
             let filter = async (interaction) => {
                 return author.id === interaction.user.id
