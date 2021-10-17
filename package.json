@@ -12,6 +12,7 @@
   "dependencies": {
     "@discordjs/rest": "^0.1.0-canary.0",
     "discord-api-types": "^0.23.1",
+    "discord-backup": "^3.0.1",
     "discord.js": "^13.1.0",
     "module-alias": "^2.2.2",
     "mongoose": "^6.0.8",
