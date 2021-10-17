@@ -7,17 +7,19 @@ module.exports = {
     sendFullHelp: (client, location) => {
         const embed = new MessageEmbed()
             .setTitle("> CrowdControl Commands")
-            .setDescription(`To get info about a specific command or commands in a specific category, run \`${prefix}help <command | category>\`!`)
+            .setDescription(`To get info about a specific command or commands in a specific category, run \`${prefix}help <command | category>\`!\nTo get this DMed to you suffix the -dm flag, to get it sent in a nice select menu, use -dd`)
             .setColor(0xFFFF00)
         
         for (let cat of client.categories) {
             if (cat === 'dev' || cat === 'context') continue
             
+            if (client.commands.filter(c => c.category.toLowerCase() === cat.toLowerCase()).size === 0) continue
+
             const commands = client.commands.filter(c => c.category.toLowerCase() == cat.toLowerCase());
 
             embed.addField(cat.charAt(0).toUpperCase() + cat.slice(1), commands.map(c => `\`${c.name}\``).join(", "));
         }
-        
+        console.log(embed + 'test')
         location.send({embeds: [embed]});
     },
 
