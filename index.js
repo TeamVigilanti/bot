@@ -11,7 +11,8 @@ const client = new Client({
         FLAGS.GUILDS,
         FLAGS.GUILD_MESSAGES,
         FLAGS.GUILD_MEMBERS,
-        FLAGS.GUILD_PRESENCES
+        FLAGS.GUILD_PRESENCES,
+        FLAGS.GUILD_VOICE_STATES
     ],
     partials: ['MESSAGE', 'CHANNEL', 'REACTION', 'GUILD_MEMBER'],
     presence: {

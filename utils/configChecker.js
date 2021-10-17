@@ -1,5 +1,6 @@
 const { getModLogs } = require("./db/modLogs");
 const { getReportLogs } = require("./db/reportLogs");
+const { getPrivateVC } = require("./db/privateVC");
 const { ccEmbed } = require("./ccEmbed-utils");
 
 module.exports = {
@@ -10,6 +11,12 @@ module.exports = {
     const logs = await getReportLogs(message.guild.id);
     
     return logs ? logs : null
+  },
+
+  checkPrivateVC: async (guild) => {
+    const logs = await getPrivateVC(guild.id);
+    
+    return logs || null;
   },
 
   checkModLogs: async (message) => {
