@@ -9,10 +9,10 @@ module.exports = {
             .setTitle("> CrowdControl Commands")
             .setDescription(`To get info about a specific command or commands in a specific category, run \`${prefix}help <command | category>\`!\nTo get this DMed to you suffix the -dm flag, to get it sent in a nice select menu, use -dd`)
             .setColor(0xFFFF00)
-        
+
         for (let cat of client.categories) {
             if (cat === 'dev' || cat === 'context') continue
-            
+
             if (client.commands.filter(c => c.category.toLowerCase() === cat.toLowerCase()).size === 0) continue
 
             const commands = client.commands.filter(c => c.category.toLowerCase() == cat.toLowerCase());
@@ -20,7 +20,7 @@ module.exports = {
             embed.addField(cat.charAt(0).toUpperCase() + cat.slice(1), commands.map(c => `\`${c.name}\``).join(", "));
         }
         console.log(embed + 'test')
-        location.send({embeds: [embed]});
+        return location.send({ embeds: [embed] }).catch(() => { })
     },
 
     sendCommandOrCategoryHelp: (client, location, searchedCommand, authorId) => {
@@ -31,8 +31,9 @@ module.exports = {
                 .setTitle('Command/Category Not Found')
                 .setDescription('That command/category doesn\'t seem to exist. Run `' + prefix + 'help` for a complete list of commands and categories!')
                 .setColor(0xFFFF00)
-            
-            return location.send({ embeds: [errEmbed] })
+
+            location.send({ embeds: [errEmbed] }).catch(() => { })
+            return
         }
 
         // if the searched word is found to be one of the categories
@@ -45,7 +46,7 @@ module.exports = {
                 .addField(`${cmdOrCat.charAt(0).toUpperCase() + cmdOrCat.slice(1)} Commands`, commands.map(c => `\`${c.name}\``).join(', '))
                 .setColor(0xFFFF00)
 
-            location.send({ embeds: [embed] })
+            return location.send({ embeds: [embed] })
         } else {
             const embed = new MessageEmbed()
                 .setTitle('Command Found!')
@@ -61,7 +62,7 @@ module.exports = {
             
             embed.setFooter(`${authorId}${cmdOrCat.usage ? ' | <> - required, [] - optional' : ''}`)
 
-            location.send({embeds: [embed]})
+            return location.send({embeds: [embed]})
         }
     },
 
@@ -120,7 +121,7 @@ module.exports = {
                     .addOptions(helpOptions)
             )
 
-        initialMessage = await location.send({ embeds: [ccEmbed('success', 'Categories Loaded!')], components: [row] })
+        initialMessage = await location.send({ embeds: [ccEmbed('success', 'Categories Loaded!')], components: [row] }).catch(e => { })
 
         async function load() {
             let filter = async (interaction) => {
@@ -149,7 +150,7 @@ module.exports = {
                 console.log('oops')
             }
         }
-        load()
+        await load()
     }
 }
 
