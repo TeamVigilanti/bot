@@ -14,11 +14,13 @@ module.exports = {
         const reportLogs = await checkReportLogs(message)
         if (!reportLogs) return message.channel.send({ embeds: [ccEmbed('error', 'Error', 'Oops! The report module is disabled because the report logs channel is not set!')] })
         
-        let user = message.mentions.users.first() || message.guild.members.cache.get(args[0])
+        let user = message.mentions.users.first() || await message.guild.members.fetch(args[0])
         
         if (!user) return message.channel.send({ embeds: [ccEmbed('error', "Error", "Please specify a user to report")] })
 
-        const member = message.member || await message.guild.members.fetch(user.id)
+        const member = await message.guild.members.fetch(user.id)
+
+        message.member ??= await message.guild.members.fetch(message.author.id)
 
         if (user.bot) return message.channel.send({ content: `${emojis.kek} The bot's are harmless, I promise. (You can't report a bot silly)` })
         if(user.id === message.author.id) return message.channel.send({ content: `You can't report yourself! ${emojis.kek}` })
