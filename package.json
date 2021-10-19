@@ -16,6 +16,7 @@
     "discord-api-types": "^0.23.1",
     "discord-backup": "^3.0.1",
     "discord.js": "^13.1.0",
+    "express": "^4.17.1",
     "module-alias": "^2.2.2",
     "moment": "^2.29.1",
     "mongoose": "^6.0.8",

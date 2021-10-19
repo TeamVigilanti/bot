@@ -3,6 +3,9 @@ const { FLAGS } = Intents
 const fs = require('fs')
 const mongoose = require('mongoose')
 const config = require('./config.json')
+const express = require('express');
+const app = express();
+const port = 3000;
 
 
 const client = new Client({
@@ -23,22 +26,16 @@ const client = new Client({
     }
 })
 
-// collection of our commands
 client.commands = new Collection()
 
-// yes discord i finally implemented slash commands now please let my family go
 client.slashCommands = new Collection()
 
-// collection of the command categories which are the folders in the commands folder
 client.categories = fs.readdirSync('./commands')
 
-// loads the commands
 require('./handlers/command')(client)
 
-// loads the slash commands
 require('./handlers/slashCommand')(client, false)
 
-// loads the events
 require('./handlers/event')(client)
 
 mongoose.connect(config.mongoURI, {
@@ -50,6 +47,8 @@ mongoose.connect(config.mongoURI, {
     console.log(`Could not connect to MongoDB!\nError: ${e}`)
 })
 
+app.get('/', (req, res) => res.send('Status 200!'));
+app.listen(port, () => console.log(`App is listening at http://localhost:${port}`));
 
 enabled = config?.devmode
 if (enabled == true) {
