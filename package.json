@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node index.js"
+    "start": "node index.js",
+    "dev": "nodemon ."
   },
   "keywords": [],
   "author": "Fad F",
@@ -16,10 +17,14 @@
     "discord-backup": "^3.0.1",
     "discord.js": "^13.1.0",
     "module-alias": "^2.2.2",
+    "moment": "^2.29.1",
     "mongoose": "^6.0.8",
     "ms": "^3.0.0-canary.1"
   },
   "_moduleAliases": {
     "@commands": "./commands"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.14"
   }
 }
