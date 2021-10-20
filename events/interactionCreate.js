@@ -17,6 +17,8 @@ module.exports = {
                 if (typeof permissions === 'string') permissions = [permissions]
             
                 for (const permission of permissions)  {
+                    if (permission === 'BOT_DEV') continue
+
                     const permErrEmbed = ccEmbed('error', 'Invalid Permissions!')
                     
                     if (!interaction.member.permissions.has(permission)) {
@@ -63,7 +65,7 @@ module.exports = {
                     'Hey you!\nYeah you!\nif you\'re seeing this message, it means that the bot owner did a stinky in writing the code thus you receiving an error after trying to run a commound. sorry bout that.'
                 )
                     
-                interaction.reply({ embeds: [errEmbed], ephemeral: true })
+                interaction.channel.send({ embeds: [errEmbed], ephemeral: true })
             }
         }
     }
