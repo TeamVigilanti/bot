@@ -1,9 +1,9 @@
 const fs = require('fs')
 const { REST } = require('@discordjs/rest')
 const { Routes } = require('discord-api-types/v9')
-const { clientId, guildId, token } = require('../config.json')
+const { clientId, guildId, devToken } = require('../config.json')
 
-const rest = new REST({ version: 9 }).setToken(token)
+const rest = new REST({ version: 9 }).setToken(devToken)
 
 module.exports = async (client, forDeploy) => {
     const arrayOfSlashCommands = []
