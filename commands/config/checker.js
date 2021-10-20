@@ -5,7 +5,7 @@ const emojis = require("../../data/emojis")
 module.exports = {
     name: 'checker',
     description: 'Checks config settings!',
-    aliases: [''],
+    aliases: [],
     usage: '',
     category: 'config',
     permissions: 'MANAGE_ROLES',

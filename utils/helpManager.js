@@ -53,7 +53,7 @@ module.exports = {
                 .addField('Command', cmdOrCat.name)
                 .setColor(0xFFFF00)  
 
-            if (cmdOrCat.aliases) embed.addField('Aliases', cmdOrCat.aliases.join(', '))
+            if (cmdOrCat.aliases?.length) embed.addField('Aliases', cmdOrCat.aliases.join(', '))
             if (cmdOrCat.category) embed.addField('Category', cmdOrCat.category)
             if (cmdOrCat.description) embed.addField('Description', cmdOrCat.description)
             if (cmdOrCat.usage) embed.addField('Usage', '`' + prefix + cmdOrCat.name + ' ' + cmdOrCat.usage + '`')
