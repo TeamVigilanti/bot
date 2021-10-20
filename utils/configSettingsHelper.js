@@ -1,6 +1,7 @@
 const { getModLogs } = require("./db/modLogs");
 const { getReportLogs } = require("./db/reportLogs");
 const { getPrivateVC } = require("./db/privateVC");
+const { getVerifyRole, getVerifyChannel } = require("./db/verification");
 const { ccEmbed } = require("./ccEmbed-utils");
 
 module.exports = {
@@ -34,6 +35,24 @@ module.exports = {
     }
   },
 
+  isVerifyRole: async (message) => {
+    const role = await getVerifyRole(message.guild.id);
+    if (role) {
+        return true;
+    } else {
+        return false;
+    }
+  },
+
+  isVerifyChannel: async (message) => {
+    const channel = await getVerifyChannel(message.guild.id);
+    if (channel) {
+        return true;
+    } else {
+        return false;
+    }
+  },
+
   pullReportLogsID: async (message) => {
     const logs = await getReportLogs(message.guild.id);
     if (logs) {
@@ -54,6 +73,24 @@ module.exports = {
 
   pullPrivateVC: async (message) => {
     const channel = await getPrivateVC(message.guild.id);
+    if (channel) {
+        return channel;
+    } else {
+        return null;
+    }
+  },
+
+  pullVerifyRole: async (message) => {
+    const role = await getVerifyRole(message.guild.id);
+    if (role) {
+        return role;
+    } else {
+        return null;
+    }
+  },
+
+  pullVerifyChannel: async (message) => {
+    const channel = await getVerifyChannel(message.guild.id);
     if (channel) {
         return channel;
     } else {

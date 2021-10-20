@@ -11,13 +11,6 @@ module.exports = {
 
             const wChannel = member.guild.channels.cache.get(data.config.welcomeChannel._id)
             const wMessage = data.config.welcomeChannel.text
-
-            const wEmbed = ccEmbed('success', 'New Member!', wMessage.replace(/{member}/g, member.user.tag).replace(/{memberId}/g, member.id).replace(/{server}/, member.guild.name))
-                .setThumbnail(member.user.avatarURL({dynamic: true}))
-                .setFooter(member.id)
-                .setTimestamp()
-            
-            wChannel.send({ embeds: [wEmbed] })
         })
     }
 }
