@@ -39,6 +39,17 @@ module.exports = {
     
                 message.channel.send({ embeds: [ccEmbed('success', 'Set report logs channel successfully!', `Channel #${reportLogsChannel.name} has been set as the report logs channel for this server!`)] })
                 break;
+            case 'audit': // this is for all events
+                const auditLogsChannel = message.mentions.channels.first() || message.guild.channels.cache.get(args[1])
+
+                if (!auditLogsChannel) {
+                    const embed = ccEmbed('error', 'Channel Not Found!', 'Please specify a valid channel!')
+                    return message.channel.send({ embeds: [embed] })
+                }
+
+                setAuditLogs(message.guild.id, auditLogsChannel.id)
+                message.channel.send({ embeds: [ccEmbed('success', 'Set report logs channel successfully!', `Channel #${reportLogsChannel.name} has been set as the report logs channel for this server!`)] })
+                break;
             default:
                 const embed = ccEmbed('error', 'Invalid Type!', 'Please specify a valid type!\nValid types are `modlogs` `reportlogs` and `<placeholder>`!')
 

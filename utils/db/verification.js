@@ -15,7 +15,7 @@ module.exports.setVerifyRole = (guildId, verifyRole) => {
                     verifyRole
                 }
             })
-
+            console.log(data)
             data.save()
         }
     })

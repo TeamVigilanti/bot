@@ -13,6 +13,7 @@
   "license": "GNU GPLv3",
   "dependencies": {
     "@discordjs/rest": "^0.1.0-canary.0",
+    "captcha-canvas": "^3.0.4",
     "discord-api-types": "^0.23.1",
     "discord-backup": "^3.0.1",
     "discord.js": "^13.1.0",
