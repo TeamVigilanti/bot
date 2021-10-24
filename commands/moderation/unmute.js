@@ -1,5 +1,6 @@
 const { ccEmbed } = require("../../utils/ccEmbed-utils")
 const { getMutedRole } = require("../../utils/db/muted-role-utils");
+const { checkModLogs } = require("../../utils/configChecker")
 
 module.exports = {
     name: 'unmute',
@@ -9,6 +10,8 @@ module.exports = {
     category: 'moderation',
     permissions: 'MANAGE_ROLES',
     async run (client, message, args) {
+        const modLogs = await checkModLogs(message)
+        if (!modLogs) return message.channel.send({ embeds: [ccEmbed('error', 'Error', 'Oops! The moderation module is disabled because the mod logs channel is not set!')] })
         const member = message.mentions.members.first() || await message.guild.members.fetch(args[0]).catch(e => { const member = undefined })
 
         if (!member || !args[0]) {

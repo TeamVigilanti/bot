@@ -1,5 +1,6 @@
 const ms = require("ms")
 const { ccEmbed } = require("../../utils/ccEmbed-utils")
+const { checkModLogs } = require("../../utils/configChecker")
 
 module.exports = {
     name: 'lockdown',
@@ -8,6 +9,8 @@ module.exports = {
     category: 'moderation',
     permissions: 'MANAGE_CHANNELS',
     async run (client, message, args) {
+        const modLogs = await checkModLogs(message)
+        if (!modLogs) return message.channel.send({ embeds: [ccEmbed('error', 'Error', 'Oops! The moderation module is disabled because the mod logs channel is not set!')] })
 
         const userPermEmbed = ccEmbed('error', 'Permission Error', "You do not have the required permissions to use this command")
         if (!message.member.permissions.has('MANAGE_CHANNELS')) return message.channel.send({ embeds: [userPermEmbed] })

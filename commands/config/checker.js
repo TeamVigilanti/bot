@@ -27,10 +27,10 @@ module.exports = {
             \n**Mod Logs:**\n${await isModLogs(message) ? `${emojis.online} Enabled, <#${pulledModLogs}>` : `${emojis.outage} Disabled, set it up via \`{prefix}setlogs modlogs <channel id>\``}
             \n**Private Voice Channel:**\n${await isPrivateVC(message) ? `${emojis.online} Enabled, <#${pulledPrivateVC}>` : `${emojis.outage} Disabled, set it up via \`{prefix}setprivatevc vc <voice channel id>\``}
             \n
-            \n***Verification Settings...***
+            \n***Verification Settings... [COMING SOON]***
             \n
-            \n**Verify Role:**\n${await isVerifyRole(message) ? `${emojis.online} Enabled, <@&${pulledVerifyRole}>` : `\n${emojis.outage} Disabled, set it up via \`{prefix}setprivatevc vc <voice channel id>\``}
-            \n**Verify Notify Channel:**\n${await isVerifyChannel(message) ? `${emojis.online} Enabled, <#${pulledVerifyChannel}>` : `\n${emojis.outage} Disabled, set it up via \`{prefix}setprivatevc vc <voice channel id>\``}
+            \n**Verify Role:**\n${await isVerifyRole(message) ? `${emojis.offline} Still under development!` : `\n${emojis.offline} Still under development!`}
+            \n**Verify Notify Channel:**\n${await isVerifyChannel(message) ? `${emojis.offline} Still under development!` : `\n${emojis.offline} Still under development!`}
             `
         );
         message.channel.send({ embeds: [embed] });

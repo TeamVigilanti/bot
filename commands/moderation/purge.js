@@ -1,5 +1,6 @@
 const { MessageEmbed } = require("discord.js")
 const { ccEmbed } = require("../../utils/ccEmbed-utils")
+const { checkModLogs } = require("../../utils/configChecker")
 
 module.exports = {
     name: 'purge',
@@ -9,6 +10,9 @@ module.exports = {
     category: 'moderation',
     permissions: 'MANAGE_MESSAGES',
     async run (client, message, args) {
+        const modLogs = await checkModLogs(message)
+        if (!modLogs) return message.channel.send({ embeds: [ccEmbed('error', 'Error', 'Oops! The moderation module is disabled because the mod logs channel is not set!')] })
+
         const count = args[0]
 
         let errEmbed = ccEmbed('error', 'Purge Error!')

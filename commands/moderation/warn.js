@@ -1,5 +1,5 @@
 const warnModel = require('../../schemas/Warn');
-
+const { checkModLogs } = require("../../utils/configChecker")
 const { MessageEmbed } = require("discord.js")
 const { default: ms } = require("ms")
 const { ccEmbed } = require("../../utils/ccEmbed-utils")
@@ -12,6 +12,8 @@ module.exports = {
     category: 'moderation',
     permissions: 'MANAGE_MESSAGES',
     async run (client, message, args) {
+        const modLogs = await checkModLogs(message)
+        if (!modLogs) return message.channel.send({ embeds: [ccEmbed('error', 'Error', 'Oops! The moderation module is disabled because the mod logs channel is not set!')] })
         const target = message.mentions.members.first() || await message.guild.members.fetch(args[0]).catch(e => { const target = undefined })
         const reason = args.slice(1).join(' ')
 

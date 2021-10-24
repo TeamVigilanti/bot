@@ -22,12 +22,6 @@ module.exports = {
   checkModLogs: async (message) => {
     const logs = await getModLogs(message.guild.id);
     
-    if (logs) {
-        return message.channel.send({ content: "bueno" });
-    } else {
-        const embed = ccEmbed('error', 'Channel Not Found!', 'Oops! No mod logs channel can be found in our database for this guild, as a result, this command is disabled.')
-        
-        return message.channel.send({ embeds: [embed] })
-    }
+    return logs ? logs : null
   },
 }

@@ -1,6 +1,7 @@
 const ms = require("ms")
 const { ccEmbed } = require("../../utils/ccEmbed-utils")
 const emojis = require("../../data/emojis")
+const { checkModLogs } = require("../../utils/configChecker")
 
 module.exports = {
     name: 'ban',
@@ -10,6 +11,9 @@ module.exports = {
     category: 'moderation',
     permissions: 'BAN_MEMBERS',
     async run (client, message, args) {
+        const modLogs = await checkModLogs(message)
+        if (!modLogs) return message.channel.send({ embeds: [ccEmbed('error', 'Error', 'Oops! The moderation module is disabled because the mod logs channel is not set!')] })
+
         //the member that the user is trying to ban
         const target = message.mentions.members.first() || await message.guild.members.fetch(args[0]).catch(e => { const target = undefined })
         

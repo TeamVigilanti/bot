@@ -13,7 +13,7 @@ module.exports = {
             'CrowdControl Info', 
             'CrowdControl is an automoderation and server management Discord bot currently in closed alpha. For now it\'ll be available for close friends of the developer and will later be released for general usage!'
         )
-            .addField('Developers', 'Codeize#4140')
+            .addField('Developers', 'Codeize#0001')
             .addField('Version', 'V0 Dev')
             .addField('Contributors', 'Fad The Chad (DankML)#8516')
             .setImage(client.user.avatarURL({dynamic: true}))

@@ -4,6 +4,7 @@ const moment = require('moment');
 const { MessageEmbed } = require("discord.js")
 const { default: ms } = require("ms")
 const { ccEmbed } = require("../../utils/ccEmbed-utils")
+const { checkModLogs } = require("../../utils/configChecker")
 
 module.exports = {
     name: 'logs',
@@ -13,6 +14,9 @@ module.exports = {
     category: 'moderation',
     permissions: 'MANAGE_MESSAGES',
     async run (client, message, args) {
+        const modLogs = await checkModLogs(message)
+        if (!modLogs) return message.channel.send({ embeds: [ccEmbed('error', 'Error', 'Oops! The moderation module is disabled because the mod logs channel is not set!')] })
+
         const target = message.mentions.members.first() || await message.guild.members.fetch(args[0]).catch(e => { const target = undefined })
 
         if (!target || !args[0]) return message.channel.send('Hmm.. double check that user, it doesn\'t seem correct!')
