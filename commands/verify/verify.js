@@ -2,7 +2,7 @@ const { MessageEmbed } = require("discord.js")
 const { checkReportLogs } = require("../../utils/configChecker")
 const emojis = require("../../data/emojis")
 const { 
-    isVerifyRole, isVerifyChannel, pullVerifyRole, pullVerifyChannel 
+    pullVerifyRole, pullVerifyChannel 
 } = require('../../utils/configSettingsHelper');
 const { ccEmbed } = require("../../utils/ccEmbed-utils");
 
