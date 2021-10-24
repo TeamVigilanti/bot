@@ -1,5 +1,6 @@
 const fs = require('fs')
 const logger = require('../utils/logger-utils.js')
+const { getModLogs } = require("../utils/db/modLogs");
 
 module.exports = (client) => {
     const eventFiles = fs.readdirSync('./events').filter(file => file.endsWith('.js'))
@@ -16,7 +17,7 @@ module.exports = (client) => {
                 console.log(event.name + ' has been run!')
             })
 	    } else {
-		    client.on(event.name, (...args) => {
+		    client.on(event.name, async (...args) => {
                 event.run(...args, client)
                 console.log(event.name + ' has been run!')
 
@@ -24,9 +25,17 @@ module.exports = (client) => {
 
                 if (!getEventLog) return
 
-                let logs = getEventLog(...args) // the logs embed
+                let [logEmbed, guildId] = getEventLog(...args) // the logs embed
 
-                // the log channel.send({ embeds: [logs] })
+                const modLogs = await getModLogs(guildId)
+
+                if (!modLogs) return
+
+                const guild = client.guilds.cache.get(guildId) || await client.guilds.fetch(guildId)
+
+                const mlChannel = guild.channels.cache.get(modLogs)
+
+                mlChannel?.send({ embeds: [logEmbed] })
             })
 	    }
     }

@@ -1,5 +1,7 @@
 const Schema = require('../../schemas/Guild')
 
+const modLogsCache = {}
+
 module.exports.setModLogs = (guildId, modLogs) => {
     Schema.findOne({ _id: guildId }, async (err, data) => {
         if (err) throw err
@@ -18,12 +20,13 @@ module.exports.setModLogs = (guildId, modLogs) => {
 
             data.save()
         }
+
+        modLogsCache[guildId] = modLogs
     })
 }
 
 module.exports.getModLogs = async (guildId) => {
-    const result = await Schema.findOne({ _id: guildId })
+    const result = modLogsCache[guildId] || await Schema.findOne({ _id: guildId })
 
     return result?.config.modLogs
-    console.log(result)
 }

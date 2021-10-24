@@ -7,10 +7,9 @@ const GuildSchema = new Schema({
     config: {
         prefix: { type: String, default: prefix },
         mutedRole: String,
-        // modLogs: String,
-        // reportLogs: String,
-        // auditLogs: String,
-        logs: String,
+        modLogs: String,
+        reportLogs: String,
+        auditLogs: String,
         lockdownCategory: String,
         privateVC: String,
         verifyRole: String,

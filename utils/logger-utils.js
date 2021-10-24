@@ -1,10 +1,13 @@
-// eventName: (eventArgs) => { event logged embed }
+// eventName: (eventArgs) => { [event logged embed, guildId] }
+
+const { MessageEmbed } = require("discord.js");
 
 const logger = {
     messageDelete: (message) => {
-        const embed = new MessageEmbed().setTitle('message is delet. fard.')
-
-        return embed
+        return [new MessageEmbed().setTitle('Message Deleted').addField('Message', message.content).addField('Author', `${message.author.tag} (${message.author.id})`), message.guild.id]
+    },
+    messageUpdate: (oldMsg, newMsg) => {
+        return [new MessageEmbed().setTitle('Message Edited').addField('Old', oldMsg.content).addField('new', newMsg.content), newMsg.guild.id]
     }
 }
 
