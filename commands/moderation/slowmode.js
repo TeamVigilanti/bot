@@ -10,7 +10,7 @@ module.exports = {
     usage: '[amount]',
     category: 'moderation',
     permissions: 'MANAGE_MESSAGES',
-    run (client, message, args) {
+    async run (client, message, args) {
         const modLogs = await checkModLogs(message)
         if (!modLogs) return message.channel.send({ embeds: [ccEmbed('error', 'Error', 'Oops! The moderation module is disabled because the mod logs channel is not set!')] })
         let amount = args[0]
