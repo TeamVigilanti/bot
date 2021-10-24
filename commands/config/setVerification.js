@@ -13,7 +13,12 @@ module.exports = {
     run (client, message, args) {
         switch (args[0]) {
             case 'channel':
-                const verifyChannel = message.mentions.channels.first() || message.guild.channels.cache.get(args[1])
+                let verifyChannel;
+                if (args[1] === '-this') {
+                    verifyChannel = message.channel;
+                } else {
+                    verifyChannel = message.mentions.channels.first() || message.guild.channels.cache.get(args[1]);
+                }
 
                 if (!verifyChannel) {
                     const embed = ccEmbed('error', 'Channel Not Found!', 'Please specify a valid channel!')
