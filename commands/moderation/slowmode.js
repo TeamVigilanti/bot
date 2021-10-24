@@ -26,7 +26,7 @@ module.exports = {
             if (isNaN(amount) || parseInt(amount) < 0 || parseInt(amount) > 3600) {
                 const errEmbed = new MessageEmbed()
                     .setTitle('<:CrowdControl_Cross:887607566060888094> Invalid Amount!')
-                    .setDescription('Please enter a valid slowmode between 1 to 3600!')
+                    .setDescription('Please enter a valid slowmode between 1 & 3600!')
                     .setColor(0x0000FF)
 
                 return message.channel.send({ embeds: [errEmbed]})
