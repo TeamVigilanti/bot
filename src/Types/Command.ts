@@ -43,7 +43,7 @@ interface CommandOptions {
     name: string;
     description: string;
     category: string;
-    devOnly: boolean;
+    devOnly?: boolean;
     // maybe smth like ownerOnly: boolean; || or modOnly: boolean;
     options?: {
       type: ApplicationCommandOptionType | number;

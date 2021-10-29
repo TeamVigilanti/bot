@@ -1,5 +1,6 @@
 import { CommandInteraction, MessageEmbed } from "discord.js";
 import Command from "../../Types/Command";
+import { ApplicationCommandOptionType } from "discord-api-types";
 
 export default class LeaveCommand extends Command {
     public constructor(){
@@ -8,11 +9,26 @@ export default class LeaveCommand extends Command {
             name: "leave",
             description: "Makes CC leave a guild.",
             category: "Dev",
-            devOnly: true
+            devOnly: true,
+            options: [
+                {
+                    name: "guildid",
+                    description: "The guild ID of the server of which you want cc to leave!",
+                    type: ApplicationCommandOptionType.String,
+                    required: true
+                }
+            ]
         })
     }
 
     async run (int:CommandInteraction){
-        int.reply("hello - dev only");
+        let guildID = int.options.getString("guildid");
+        if (!guildID) return;
+
+        // do rest of command here
+        let g = await this.client?.guilds.fetch(guildID);
+        if (!g) return int.reply({ content: "Couldn't find a guild with that ID!", ephemeral: true });
+        g.leave().catch((err) => int.reply({ content: "There was an error leaving that server! " + err, ephemeral: true }));
+        int.reply({ content: `Successfully left ${g.name} (${g.id})`, ephemeral: true });
     }
 }
