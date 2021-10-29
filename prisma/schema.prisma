@@ -15,5 +15,6 @@ model cc {
 model Guild {
   id String @id @default(dbgenerated()) @map("_id") @db.ObjectId
   guildID String @unique()
+  premium Boolean
   settings Json?
 }

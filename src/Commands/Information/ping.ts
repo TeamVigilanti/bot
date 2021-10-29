@@ -13,6 +13,5 @@ export default class PingCommand extends Command {
 
     async run (int:CommandInteraction){
         int.reply("Pong 🏓")
-
     }
 }
