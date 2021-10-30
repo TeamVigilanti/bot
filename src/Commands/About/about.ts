@@ -13,15 +13,16 @@ export default class AboutCommand extends Command {
 
     async run (int:CommandInteraction){
         let embed = new MessageEmbed()
-        .setTitle("About CrowdContrl")
-        .setDescription("CrowdContrl is a Discord bot that allows you to control your server's moderation, and general server maintenance.")
-        .addField("Version", process.env.version as string)
-        .addField("Core Dev Team", "-  Codeize#0001\n-  Dann#7822\n-  Fad The Chad (DankML)#8516")
-        .addField("Guilds", this.client?.guilds.cache.size.toString() as string, true)
-        .addField("Users", this.client?.users.cache.size.toString() as string, true)
-        .addField("Channels", this.client?.channels.cache.size.toString() as string, true)
-        .setColor("#00ff00")
-        .setThumbnail(this.client?.user?.avatarURL() as string)
-        int.reply({ embeds: [embed]})
+            .setTitle("About CrowdControl")
+            .setDescription("CrowdControl is a Discord bot that allows you to control your server's moderation, and general server maintenance.")
+            .addField("Version", process.env.version as string)
+            .addField("Core Dev Team", "-  Codeize#0001\n-  Dann#7822\n-  Fad The Chad (DankML)#8516")
+            .addField("Guilds", this.client?.guilds.cache.size.toString() as string, true)
+            .addField("Users", this.client?.users.cache.size.toString() as string, true)
+            .addField("Channels", this.client?.channels.cache.size.toString() as string, true)
+            .setColor("#00ff00")
+            .setThumbnail(this.client?.user?.avatarURL() as string)
+
+        await int.reply({ embeds: [embed] })
     }
 }
