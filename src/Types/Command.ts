@@ -32,7 +32,7 @@ export default class Command {
       this.name = settings!.name;
       this.description = settings!.description;
       this.category = settings!.category;
-      this.devOnly = settings!.devOnly;
+      this.devOnly = settings!.devOnly ?? false;
       this.options = settings!.options;
     }
   
