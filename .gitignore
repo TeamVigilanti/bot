@@ -2,6 +2,7 @@
 /node_modules/
 /dist
 tsconfig.tsbuildinfo
-config.json
+/.idea
+/.vscode
+yarn-error.log
 yarn.lock
-.idea

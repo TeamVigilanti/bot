@@ -22,6 +22,7 @@
   },
   "devDependencies": {
     "@types/common-tags": "^1.8.1",
-    "nodemon": "^2.0.14"
+    "nodemon": "^2.0.14",
+    "readme-md-generator": "^1.0.0"
   }
 }
