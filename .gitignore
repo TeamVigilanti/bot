@@ -3,3 +3,5 @@
 /dist
 tsconfig.tsbuildinfo
 config.json
+yarn.lock
+.idea
