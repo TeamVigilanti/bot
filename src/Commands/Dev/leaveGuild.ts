@@ -13,7 +13,7 @@ export default class LeaveCommand extends Command {
                 {
                     name: "guildid",
                     description: "The guild ID of the server of which you want cc to leave!",
-                    type: 'STRING',
+                    type: 3,
                     required: true
                 }
             ]

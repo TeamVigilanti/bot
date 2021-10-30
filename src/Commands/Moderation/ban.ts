@@ -13,19 +13,19 @@ export default class BanCommand extends Command {
                 {
                     name: "member",
                     description: "The member you would like to ban!",
-                    type: 'USER',
-                    required: true, 
+                    type: 6,
+                    required: true,
                 },
                 {
                     name: "reason",
                     description: "The reason for the ban!",
-                    type: 'STRING',
+                    type: 3,
                     required: false,
                 },
                 {
                     name: "hidden",
                     description: "Whether the message is sent into chat, or shown only to you.",
-                    type: 'BOOLEAN',
+                    type: 5,
                     required: false,
                 },
             ]

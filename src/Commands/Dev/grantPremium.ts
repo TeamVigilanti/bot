@@ -13,7 +13,7 @@ export default class GrantPremiumCommand extends Command {
                 {
                     name: "guildid",
                     description: "The guild ID of the server of which you want to grant premium!",
-                    type: 'STRING',
+                    type: 3,
                     required: true
                 }
             ]
