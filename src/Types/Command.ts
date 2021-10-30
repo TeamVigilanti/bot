@@ -1,4 +1,4 @@
-import { ApplicationCommandOptionType, CommandInteraction  } from "discord.js";
+import { ApplicationCommandOptionData, ApplicationCommandOptionType, CommandInteraction } from 'discord.js'
 import CrowdControlClient from "../Client/CrowdControlClient";
 
 export default class Command {
@@ -7,26 +7,7 @@ export default class Command {
     public readonly description: string;
     public readonly category: string;
     public readonly devOnly?: boolean;
-    public readonly options?: {
-      type: ApplicationCommandOptionType | number;
-      name: string;
-      description: string;
-      required?: boolean;
-      choices?: {
-        name: string;
-        value: string;
-      }[];
-      options?: {
-        type: ApplicationCommandOptionType | number;
-        name: string;
-        description: string;
-        required?: boolean;
-        choices?: {
-          name: string;
-          value: string;
-        }[];
-      }[];
-    }[];
+    public readonly options?: ApplicationCommandOptionData[]
   
     public constructor(settings?: CommandOptions) {
       this.name = settings!.name;
@@ -45,34 +26,5 @@ interface CommandOptions {
     category: string;
     devOnly?: boolean;
     // maybe smth like ownerOnly: boolean; || or modOnly: boolean;
-    options?: {
-      type: ApplicationCommandOptionType | number;
-      name: string;
-      description: string;
-      required?: boolean;
-      choices?: {
-        name: string;
-        value: string;
-      }[];
-      options?: {
-        type: ApplicationCommandOptionType | number;
-        name: string;
-        description: string;
-        required?: boolean;
-        choices?: {
-          name: string;
-          value: string;
-        }[];
-        options?: {
-          type: ApplicationCommandOptionType | number;
-          name: string;
-          description: string;
-          required?: boolean;
-          choices?: {
-            name: string;
-            value: string;
-          }[];
-        }[];
-      }[];
-    }[];
+    options?: ApplicationCommandOptionData[]
   }
