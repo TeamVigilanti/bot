@@ -4,11 +4,13 @@ import { PrismaClient } from "@prisma/client";
 
 import Command from "../Types/Command";
 import CrowdControlHandlers from "./CrowdControlHandlers";
+import CrowdControlUtils from "./CrowdControlUtils";
 
 export default class CrowdControlClient extends Client {
     public owners:string[] = ["349564775447003137", "668423998777982997", "804970459561066537"];
     public commands:Collection<string, Command> = new Collection();
     public db:PrismaClient = new PrismaClient();
+    public utils:CrowdControlUtils = new CrowdControlUtils(this);
 
     public handlers:CrowdControlHandlers = new CrowdControlHandlers(this, {
         events: join(__dirname, "..", "Events"),

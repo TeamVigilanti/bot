@@ -13,19 +13,19 @@ export default class BanCommand extends Command {
                 {
                     name: "member",
                     description: "The member you would like to ban!",
-                    type: ApplicationCommandOptionType.User,
+                    type: 'USER',
                     required: true, 
                 },
                 {
                     name: "reason",
                     description: "The reason for the ban!",
-                    type: ApplicationCommandOptionType.String,
+                    type: 'STRING',
                     required: false,
                 },
                 {
                     name: "hidden",
                     description: "Whether the message is sent into chat, or shown only to you.",
-                    type: ApplicationCommandOptionType.Boolean,
+                    type: 'BOOLEAN',
                     required: false,
                 },
             ]

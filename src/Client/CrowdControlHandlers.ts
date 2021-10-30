@@ -45,6 +45,7 @@ export default class CrowdControlHandlers {
                 this.client.commands.set(cmd.name, cmd);
                 console.log(`Loaded command: ${cmd.name}`);
                 cmd.client = this.client;
+                cmd.utils = this.client.utils;
             }
         }
 
