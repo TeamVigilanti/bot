@@ -11,6 +11,9 @@
 
 > Automoderation, without the catch.
 
+## License Agreement:
+- As per the GNU GPLv3 license, we _allow_ you to make your own versions of CrowdControl, however, any and all modifications **MUST** be open sourced.
+
 ### 🏠 [Homepage](https://crowdcontrolbot.xyz)
 
 ## Install
