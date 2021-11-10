@@ -33,11 +33,11 @@ yarn
 👤 **Vigilanti Devs**
 
 * Website: https://crowdcontrolbot.xyz
-* GitHub: [@CrowdControlBot](https://github.com/CrowdControlBot)
+* GitHub: [@TeamVigilanti](https://github.com/TeamVigilanti)
 
 ## 🤝 Contributing
 
-Contributions, issues and feature requests are welcome!<br />Feel free to check [issues page](https://github.com/CrowdControlBot/bot/issues). You can also take a look at the [contributing guide](https://github.com/CrowdControlBot/bot/tree/main/.github/CONTRIBUTING.md).
+Contributions, issues and feature requests are welcome!<br />Feel free to check [issues page](https://github.com/TeamVigilanti/bot/issues). You can also take a look at the [contributing guide](https://github.com/Vigilanti/bot/tree/main/.github/CONTRIBUTING.md).
 
 ## Show your support
 
