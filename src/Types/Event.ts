@@ -1,8 +1,8 @@
-import CrowdControlClient from "../Client/CrowdControlClient";
+import VigilantiClient from "../Client/VigilantiClient";
 
 export default class Event {
     public name:string;
-    public client?:CrowdControlClient;
+    public client?:VigilantiClient;
     public type: "on" | "once";
 
     public constructor(name:string, type: "on" | "once" = "on"){

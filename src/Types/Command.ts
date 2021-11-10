@@ -1,10 +1,10 @@
 import { ApplicationCommandOptionData, ApplicationCommandOptionType, CommandInteraction } from 'discord.js'
-import CrowdControlClient from "../Client/CrowdControlClient";
-import CrowdControlUtils from "../Client/CrowdControlUtils";
+import VigilantiClient from "../Client/VigilantiClient";
+import VigilantiUtils from "../Client/VigilantiUtils";
 
 export default class Command {
-    public client?: CrowdControlClient;
-    public utils?: CrowdControlUtils;
+    public client?: VigilantiClient;
+    public utils?: VigilantiUtils;
     public readonly name: string;
     public readonly description: string;
     public readonly category: string;
