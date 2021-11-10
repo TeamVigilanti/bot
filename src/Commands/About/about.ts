@@ -13,8 +13,8 @@ export default class AboutCommand extends Command {
 
     async run (int:CommandInteraction){
         let embed = new MessageEmbed()
-            .setTitle("About CrowdControl")
-            .setDescription("CrowdControl is a Discord bot that allows you to control your server's moderation, and general server maintenance.")
+            .setTitle("About Vigilanti")
+            .setDescription("Vigilanti is a Discord bot that allows you to control your server's moderation, and general server maintenance.")
             .addField("Version", process.env.version as string)
             .addField("Core Dev Team", "-  Codeize#0001\n-  Dann#7822\n-  Fad The Chad (DankML)#8516")
             .addField("Guilds", this.client?.guilds.cache.size.toString() as string, true)
