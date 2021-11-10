@@ -1,4 +1,4 @@
-<h1 align="center">Welcome to CrowdControl 👋</h1>
+<h1 align="center">Welcome to Vigilanti 👋</h1>
 <p>
   <img alt="Version" src="https://img.shields.io/badge/version-Dev 0-blue.svg?cacheSeconds=2592000" />
   <a href="https://docs.crowdcontrolbot.xyz" target="_blank">
@@ -12,7 +12,7 @@
 > Automoderation, without the catch.
 
 ## License Agreement:
-- As per the GNU GPLv3 license, we _allow_ you to make your own versions of CrowdControl, however, any and all distributed modifications **MUST** be open sourced.
+- As per the GNU GPLv3 license, we _allow_ you to make your own versions of Vigilanti, however, any and all distributed modifications **MUST** be open sourced.
 
 ### 🏠 [Homepage](https://crowdcontrolbot.xyz)
 
@@ -30,7 +30,7 @@ yarn
 
 ## Author
 
-👤 **CrowdControl Devs**
+👤 **Vigilanti Devs**
 
 * Website: https://crowdcontrolbot.xyz
 * GitHub: [@CrowdControlBot](https://github.com/CrowdControlBot)
