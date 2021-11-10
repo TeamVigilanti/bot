@@ -1,15 +1,15 @@
-import CrowdControlClient from "./CrowdControlClient";
+import VigilantiClient from "./VigilantiClient";
 
 import { readdirSync } from "fs";
 
 import { REST } from "@discordjs/rest";
 import { Routes } from "discord-api-types/v9";
 
-export default class CrowdControlHandlers {
-    public client:CrowdControlClient;
+export default class VigilantiHandlers {
+    public client:VigilantiClient;
     public dirs: { events:string, commands:string };
 
-    public constructor(client:CrowdControlClient, dirs: { events:string, commands:string }){
+    public constructor(client:VigilantiClient, dirs: { events:string, commands:string }){
         this.client = client;
         this.dirs = dirs;
     }

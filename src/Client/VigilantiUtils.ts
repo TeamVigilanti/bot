@@ -1,11 +1,11 @@
-import CrowdControlClient from "./CrowdControlClient";
+import VigilantiClient from "./VigilantiClient";
 import { CommandInteraction, GuildMember, MessageEmbed, PermissionResolvable, Role } from "discord.js";
 import * as commonTags from "common-tags";
 
-export default class CrowdControlUtils {
-    public client?: CrowdControlClient;
+export default class VigilantiUtils {
+    public client?: VigilantiClient;
 
-    public constructor(client:CrowdControlClient){
+    public constructor(client:VigilantiClient){
         this.client = client;
     }
 

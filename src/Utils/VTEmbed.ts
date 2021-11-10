@@ -1,7 +1,7 @@
 import { MessageEmbed, MessageEmbedOptions } from 'discord.js'
 
 /** @description - A Custom Embed Class For CrowdControl */
-export default class CCEmbed extends MessageEmbed {
+export default class VTEmbed extends MessageEmbed {
     public emojis = { success: '', err: '' } // dont forget to add your emojis here btw 
 
     public colours = { success: 0x0000FF, err: 0xFF0000 }
