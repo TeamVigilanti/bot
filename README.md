@@ -1,7 +1,7 @@
 <h1 align="center">Welcome to Vigilanti 👋</h1>
 <p>
   <img alt="Version" src="https://img.shields.io/badge/version-Dev 0-blue.svg?cacheSeconds=2592000" />
-  <a href="https://docs.crowdcontrolbot.xyz" target="_blank">
+  <a href="https://docs.vigilanti.xyz" target="_blank">
     <img alt="Documentation" src="https://img.shields.io/badge/documentation-yes-brightgreen.svg" />
   </a>
   <a href="#" target="_blank">
@@ -14,7 +14,7 @@
 ## License Agreement:
 - As per the GNU GPLv3 license, we _allow_ you to make your own versions of Vigilanti, however, any and all distributed modifications **MUST** be open sourced.
 
-### 🏠 [Homepage](https://crowdcontrolbot.xyz)
+### 🏠 [Homepage](https://vigilanti.xyz)
 
 ## Install
 
@@ -32,7 +32,7 @@ yarn
 
 👤 **Vigilanti Devs**
 
-* Website: https://crowdcontrolbot.xyz
+* Website: https://vigilanti.xyz
 * GitHub: [@TeamVigilanti](https://github.com/TeamVigilanti)
 
 ## 🤝 Contributing
