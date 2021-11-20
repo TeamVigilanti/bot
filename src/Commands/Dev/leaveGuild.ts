@@ -6,13 +6,13 @@ export default class LeaveCommand extends Command {
         // add option for a guild
         super({
             name: "leave",
-            description: "Makes CC leave a guild.",
+            description: "Makes VGL leave a guild.",
             category: "Dev",
             devOnly: true,
             options: [
                 {
                     name: "guildid",
-                    description: "The guild ID of the server of which you want cc to leave!",
+                    description: "The guild ID of the server of which you want VGL to leave!",
                     type: 3,
                     required: true
                 }

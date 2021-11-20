@@ -8,7 +8,7 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model cc {
+model vgl {
   id String @id @default(dbgenerated()) @map("_id") @db.ObjectId
 }
 

@@ -32,7 +32,7 @@ export default class VigilantiHandlers {
     }
 
     public async commandsLoader(dir:string = this.dirs.commands){
-        let ccServer = await this.client.guilds.fetch('894243022085177445');
+        let vglServer = await this.client.guilds.fetch('894243022085177445');
 
         const commandCategories = readdirSync(dir);
 
@@ -53,7 +53,7 @@ export default class VigilantiHandlers {
         const rest = new REST({ version: '9' }).setToken(this.client!.token as string);
 
         try {
-            await rest.put(Routes.applicationGuildCommands(this.client.user?.id as string, ccServer.id), { body: commands });
+            await rest.put(Routes.applicationGuildCommands(this.client.user?.id as string, vglServer.id), { body: commands });
         } catch (e) {
             console.error(e);
         }

@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "dist/index.js",
   "license": "MIT",
-  "author": "CrowdControl Devs",
+  "author": "Vigilanti Services",
   "scripts": {
     "build": "tsc",
     "start": "yarn build && node .",
