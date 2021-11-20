@@ -13,11 +13,8 @@ export default class LeaveCommand extends Command {
     }
 
     async run (int:CommandInteraction){
-        this.client!.guilds.cache.map((guild) => guild.id)
-            .forEach(async (guildid) => {
-                let g = await this.client?.guilds.fetch(guildid);
+        this.client!.guilds.cache.forEach(async g => {
                 await g?.leave();
             });
-        
     }
 }
