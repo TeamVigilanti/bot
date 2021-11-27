@@ -5,6 +5,9 @@ import { readdirSync } from "fs";
 import { REST } from "@discordjs/rest";
 import { Routes } from "discord-api-types/v9";
 
+import CommandOptionType from '../Types/Interfaces/Enums/CommandOptionType'
+import { ApplicationCommandOptionData } from 'discord.js'
+
 export default class VigilantiHandlers {
     public client:VigilantiClient;
     public dirs: { events:string, commands:string };
@@ -49,7 +52,17 @@ export default class VigilantiHandlers {
             }
         }
 
-        const commands = this.client.commands.map(({run, ...data}) => data);
+        const commands = (this.client.commands.map(({run, ...data}) => data)).map(cmd => {
+            if (!cmd.options) return cmd
+
+            for (let i = 0; i < cmd.options.length; i++){
+                if (typeof cmd.options[i] === 'number') continue
+
+                cmd.options[i] = CommandOptionType[cmd.options[i] as any] as unknown as ApplicationCommandOptionData
+            }
+            return cmd
+        })
+
         const rest = new REST({ version: '9' }).setToken(this.client!.token as string);
 
         try {
