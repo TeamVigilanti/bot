@@ -6,7 +6,7 @@ import { REST } from "@discordjs/rest";
 import { Routes } from "discord-api-types/v9";
 
 import CommandOptionType from '../Types/Interfaces/Enums/CommandOptionType'
-import { ApplicationCommandOptionData } from 'discord.js'
+import { ApplicationCommandOptionType } from 'discord.js'
 
 export default class VigilantiHandlers {
     public client:VigilantiClient;
@@ -56,9 +56,9 @@ export default class VigilantiHandlers {
             if (!cmd.options) return cmd
 
             for (let i = 0; i < cmd.options.length; i++){
-                if (typeof cmd.options[i] === 'number') continue
+                if (typeof cmd.options[i].type === 'number') continue
 
-                cmd.options[i] = CommandOptionType[cmd.options[i] as any] as unknown as ApplicationCommandOptionData
+                cmd.options[i].type = CommandOptionType[cmd.options[i].type as any] as unknown as ApplicationCommandOptionType
             }
             return cmd
         })
